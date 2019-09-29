@@ -29,6 +29,7 @@
 
 ### 配置
 在[这里](https://sm.ms/home/apitoken)获取Authorization
+
 |参数名称|类型|描述|是否必须|
 |:--:|:--:|:--:|:--:|
 |Authorization|input|Authorization即API Token|true|
