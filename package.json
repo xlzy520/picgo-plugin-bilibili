@@ -1,6 +1,6 @@
 {
   "name": "picgo-plugin-smms-user",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "SMMS-用户",
   "main": "src/index.js",
   "publishConfig": {
@@ -8,6 +8,7 @@
   },
   "homepage": "",
   "scripts": {
+    "publish": "npm publish --registry http://registry.npmjs.org",
     "test": "echo \"Error: no test specified\" && exit 1",
     "patch": "npm version patch && git push origin master && git push origin --tags",
     "minor": "npm version minor && git push origin master && git push origin --tags",
@@ -19,6 +20,10 @@
     "picgo-plugin"
   ],
   "author": "zhibikanmohuakai",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:/xlzy520/picgo-plugin-smms-user.git"
+  },
   "license": "MIT",
   "devDependencies": {
     "eslint": "^5.0.1",

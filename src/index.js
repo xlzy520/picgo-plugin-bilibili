@@ -12,6 +12,7 @@ module.exports = (ctx) => {
       url: `https://sm.ms/api/v2/upload`,
       headers: {
         contentType: 'multipart/form-data',
+        'User-Agent': 'PicGo',
         'Authorization': Authorization||undefined,
       },
       formData: {
@@ -20,7 +21,8 @@ module.exports = (ctx) => {
           options: {
             filename: fileName
           }
-        }
+        },
+        ssl: 'true'
       }
     };
   };
@@ -48,9 +50,9 @@ module.exports = (ctx) => {
       else {
         ctx.emit('notification', {
           title: '上传失败',
-          body: body.msg
+          body: body.message
         });
-        throw new Error(body.msg);
+        throw new Error(body.message);
       }
     }
     return ctx;
