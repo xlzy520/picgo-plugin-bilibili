@@ -33,24 +33,3 @@
 |参数名称|类型|描述|是否必须|
 |:--:|:--:|:--:|:--:|
 |Authorization|input|Authorization即API Token|true|
-
-
-## My-PicGo
-repo: https://github.com/xlzy520/PicGo
-
-基于PicGo的改造，修改了一些功能，增加了自定义的一些功能
-
--  主体： 扩大高宽，允许缩小放大
-- 上传区：在Github图床增加一个预选存放路径选择框
-   ![](http://xlzy520.cn/Rem/dev/TIM20190929151459.jpg)
-- 相册：增加全选按钮，增加文件名显示
-- GitHub图床：增加预选路径配置，预选路径配置编辑
-  ![](http://xlzy520.cn/Rem/dev/TIM20190929152607.jpg)
-  ![](http://xlzy520.cn/Rem/dev/TIM20190929152616.jpg)
-- 设置：增加PicGo配置上传下载同步功能（自己使用，暂未添加接口）
-
-### Todo
-- 相册优化，增加获取来自smms的接口数据；
-- 设置优化
-- 预选存储路径优化
-- smms保存时可以通过选择的路径进行重命名，模拟目录 
