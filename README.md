@@ -1,4 +1,4 @@
-## picgo-plugin-smms-user
+## picgo-plugin-bilibili
 
 [![下载](https://img.shields.io/npm/dm/picgo-plugin-bilibili.svg?color=brightgreen)](https://npmcharts.com/compare/picgo-plugin-smms-user?minimal=true)
 [![版本](https://img.shields.io/npm/v/picgo-plugin-bilibili.svg?color=brightgreen)](https://www.npmjs.com/package/picgo-plugin-smms-user)
@@ -7,6 +7,17 @@
 
 为 [PicGo](https://github.com/Molunerfinn/PicGo) 开发的一款插件，新增了[B站图床](https://bilibili.com/) 图床。
 使用用户动态的图片上传API。填写`SESSDATA`即可，获取方式在下面。
+
+### 目录
+1. [其他推荐](./#其他推荐)
+2. [安装](./#安装)
+3. [获取B站SESSDATA](./#获取b站sessdata)
+4. [图片样式](./#图片样式)
+5. [解决B站防盗链（403）](./#解决b站防盗链-403)
+
+### 其他推荐
+[浏览器插件-Bilibili图床](https://github.com/xlzy520/bilibili-img-uploader)
+[Typora插件-Bilibili图床](https://github.com/xlzy520/typora-plugin-bilibili)
 
 
 ### 安装

@@ -30,7 +30,7 @@ module.exports = (ctx) => {
       ctx.emit('notification', {
         title: '请先配置SESSDATA',
         body: '链接已复制，请打开浏览器粘贴地址查看相关教程',
-        text: 'https://blog.csdn.net/qq_31201781/article/details/118147745'
+        text: 'https://xlzy520.cn/pages/8b9f9f/'
       })
       return
       // throw new Error('请先配置SESSDATA')
@@ -74,7 +74,7 @@ module.exports = (ctx) => {
       {
         name: '获取SESSDATA',
         type: 'input',
-        default: 'https://blog.csdn.net/qq_31201781/article/details/118147745',
+        default: 'https://xlzy520.cn/pages/8b9f9f/',
         alias: '获取SESSDATA'
       },
       {
