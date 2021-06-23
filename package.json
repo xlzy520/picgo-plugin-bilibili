@@ -1,7 +1,7 @@
 {
-  "name": "picgo-plugin-smms-user",
-  "version": "1.0.8",
-  "description": "SMMS-用户",
+  "name": "picgo-plugin-bilibili",
+  "version": "1.0.0",
+  "description": "bilibili用户",
   "main": "src/index.js",
   "publishConfig": {
     "access": "public"
@@ -17,21 +17,17 @@
   "keywords": [
     "picgo",
     "picgo-gui-plugin",
-    "picgo-plugin"
+    "picgo-plugin",
+    "picgo-plugin-bilibili",
+    "bilibili"
   ],
   "author": "zhibikanmohuakai",
   "repository": {
     "type": "git",
-    "url": "git@github.com:/xlzy520/picgo-plugin-smms-user.git"
+    "url": "git@github.com:/xlzy520/picgo-plugin-bilibili.git"
   },
   "license": "MIT",
   "devDependencies": {
-    "eslint": "^5.0.1",
-    "eslint-config-standard": "^11.0.0",
-    "eslint-plugin-import": "^2.13.0",
-    "eslint-plugin-node": "^6.0.1",
-    "eslint-plugin-promise": "^3.8.0",
-    "eslint-plugin-standard": "^3.1.0",
-    "@varnxy/logger": "^1.1.2"
+
   }
 }

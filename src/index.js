@@ -1,81 +1,97 @@
+const fs = require('fs')
+const path = require('path')
+
 module.exports = (ctx) => {
   const register = () => {
-    ctx.helper.uploader.register('smms-user', {
+    ctx.helper.uploader.register('bilibili', {
       handle,
-      name: 'SM.MS-登录用户',
+      name: 'Bilibili',
       config: config
     })
   }
-  const postOptions = (Authorization, fileName, image) => {
+  const postOptions = (SESSDATA, fileName, image) => {
     return {
       method: 'POST',
-      url: `https://sm.ms/api/v2/upload`,
+      url: `https://api.vc.bilibili.com/api/v1/drawImage/upload`,
       headers: {
         contentType: 'multipart/form-data',
-        'User-Agent': 'PicGo',
-        'Authorization': Authorization||undefined,
+        'Cookie': `SESSDATA=${SESSDATA}`
       },
       formData: {
-        smfile: {
-          value: image,
-          options: {
-            filename: fileName
-          }
-        },
-        ssl: 'true'
+        file_up: image,
+        category: 'daily',
+        biz: 'draw'
       }
-    };
-  };
-  const handle = async (ctx) => {
-    let userConfig = ctx.getConfig('picBed.smms-user')
-    if (!userConfig) {
-      throw new Error('Can\'t find uploader config')
     }
-    const Authorization = userConfig.Authorization
-    const imgList = ctx.output;
+  }
+  const handle = async (ctx) => {
+    let userConfig = ctx.getConfig('picBed.bilibili')
+    if (!userConfig) {
+      ctx.emit('notification', {
+        title: '请先配置SESSDATA',
+        body: '链接已复制，请打开浏览器粘贴地址查看相关教程',
+        text: 'https://blog.csdn.net/qq_31201781/article/details/118147745'
+      })
+      throw new Error('请先配置SESSDATA')
+    }
+    const SESSDATA = userConfig.SESSDATA
+    const imgList = ctx.output
     for (let i in imgList) {
-      let image = imgList[i].buffer;
+      let image = imgList[i].buffer
       if (!image && imgList[i].base64Image) {
-        image = Buffer.from(imgList[i].base64Image, 'base64');
+        image = Buffer.from(imgList[i].base64Image, 'base64')
       }
-      const postConfig = postOptions(Authorization, imgList[i].fileName, image);
-      let body = await ctx.Request.request(postConfig);
-      
-      body = JSON.parse(body);
-      if (body.code === 'success') {
-        delete imgList[i].base64Image;
-        delete imgList[i].buffer;
-        imgList[i]['imgUrl'] = body.data.url;
-      }
-      else {
+      const data = new Uint8Array(image)
+      const fileName = imgList[i].fileName
+      const filePath = path.join(__dirname, fileName)
+      await fs.writeFileSync(filePath, data)
+      const postConfig = postOptions(SESSDATA, fileName, fs.createReadStream(filePath))
+      let body = await ctx.Request.request(postConfig)
+      fs.unlink(filePath, () => {})
+      body = JSON.parse(body)
+      if (body.message === 'success') {
+        delete imgList[i].base64Image
+        delete imgList[i].buffer
+        imgList[i].imgUrl = body.data.image_url
+      } else {
         ctx.emit('notification', {
           title: '上传失败',
           body: body.message
-        });
-        throw new Error(body.message);
+        })
+        throw new Error(body.message)
       }
     }
-    return ctx;
-  };
-  
+    return ctx
+  }
+
   const config = ctx => {
-    let userConfig = ctx.getConfig('picBed.smms-user')
+    let userConfig = ctx.getConfig('picBed.bilibili')
     if (!userConfig) {
-      userConfig = {}
+      userConfig = {
+        SESSDATA: 'ef0ecf6e%2C1634699903%2Cf006a*41'
+      }
     }
     return [
       {
-        name: 'Authorization',
+        name: '获取SESSDATA',
         type: 'input',
-        default: userConfig.Authorization,
+        default: 'https://blog.csdn.net/qq_31201781/article/details/118147745',
         required: true,
         message: 'Auth',
-        alias: 'Auth'
+        alias: '获取SESSDATA'
+      },
+      {
+        name: 'SESSDATA',
+        type: 'input',
+        default: userConfig.SESSDATA,
+        required: true,
+        message: 'SESSDATA',
+        alias: 'SESSDATA'
       }
     ]
   }
   return {
-    uploader: 'smms-user',
+    uploader: 'bilibili',
     config: config,
     register
   }
