@@ -1,7 +1,7 @@
 {
   "name": "picgo-plugin-bilibili",
-  "version": "1.0.0",
-  "description": "bilibili用户",
+  "version": "1.1.0",
+  "description": "bilibili 图床",
   "main": "src/index.js",
   "publishConfig": {
     "access": "public"

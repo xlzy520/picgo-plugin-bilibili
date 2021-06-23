@@ -5,7 +5,7 @@ module.exports = (ctx) => {
   const register = () => {
     ctx.helper.uploader.register('bilibili', {
       handle,
-      name: 'Bilibili',
+      name: 'Bilibili 图床',
       config: config
     })
   }
@@ -26,13 +26,14 @@ module.exports = (ctx) => {
   }
   const handle = async (ctx) => {
     let userConfig = ctx.getConfig('picBed.bilibili')
-    if (!userConfig) {
+    if (!userConfig.SESSDATA) {
       ctx.emit('notification', {
         title: '请先配置SESSDATA',
         body: '链接已复制，请打开浏览器粘贴地址查看相关教程',
         text: 'https://blog.csdn.net/qq_31201781/article/details/118147745'
       })
-      throw new Error('请先配置SESSDATA')
+      return
+      // throw new Error('请先配置SESSDATA')
     }
     const SESSDATA = userConfig.SESSDATA
     const imgList = ctx.output
@@ -67,17 +68,13 @@ module.exports = (ctx) => {
   const config = ctx => {
     let userConfig = ctx.getConfig('picBed.bilibili')
     if (!userConfig) {
-      userConfig = {
-        SESSDATA: 'ef0ecf6e%2C1634699903%2Cf006a*41'
-      }
+      userConfig = {}
     }
     return [
       {
         name: '获取SESSDATA',
         type: 'input',
         default: 'https://blog.csdn.net/qq_31201781/article/details/118147745',
-        required: true,
-        message: 'Auth',
         alias: '获取SESSDATA'
       },
       {
