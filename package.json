@@ -6,7 +6,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "homepage": "",
+  "homepage": "https://github.com/xlzy520/picgo-plugin-bilibili",
   "scripts": {
     "publish": "npm publish --registry http://registry.npmjs.org",
     "test": "echo \"Error: no test specified\" && exit 1",
