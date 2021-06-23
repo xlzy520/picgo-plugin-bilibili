@@ -35,29 +35,6 @@
 
 
 
-### 解决B站防盗链（403）
-
->B站开启了防盗链，利用的是HTTP的Referer属性做判断。如果Referer是他白名单之外的网站，就会返回403
-
-#### 全站图片使用
-
-在html的head标签中设置如下标志，那么全站资源引用都不会携带referrer
-
-```html
-<meta name="referrer" content="no-referrer">
-```
-
-
-
-#### 新窗口打开
-
-主要设置`rel="noreferrer"`，使用`window.open`打开的话是会默认携带`referrer`的，第一次还是会403
-
-```html
-<a rel="noreferrer" target="_blank"></a> 
-```
-
-
 ### 图片样式
 例如原图： https://i0.hdslb.com/bfs/album/a18a3f8d666dc19c3216bef39a092e0e60c90eb4.png
 
@@ -86,4 +63,28 @@
 - webp,png,jpeg,gif(不加则保留原格式)
 - 不区分大小写，相同的参数后面覆盖前面
 - 计算后的实际w*h不能大于原w*h，否则wh参数失效
+
+
+### 解决B站防盗链（403）
+
+>B站开启了防盗链，利用的是HTTP的Referer属性做判断。如果Referer是他白名单之外的网站，就会返回403
+
+#### 全站图片使用
+
+在html的head标签中设置如下标志，那么全站资源引用都不会携带referrer
+
+```html
+<meta name="referrer" content="no-referrer">
+```
+
+
+
+#### 新窗口打开
+
+主要设置`rel="noreferrer"`，使用`window.open`打开的话是会默认携带`referrer`的，第一次还是会403
+
+```html
+<a rel="noreferrer" target="_blank"></a> 
+```
+
 
