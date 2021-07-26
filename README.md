@@ -16,8 +16,8 @@
 5. [解决B站防盗链（403）](#解决b站防盗链-403)
 
 ### 其他推荐
-[浏览器插件-Bilibili图床](https://github.com/xlzy520/bilibili-img-uploader)
-[Typora插件-Bilibili图床](https://github.com/xlzy520/typora-plugin-bilibili)
+- [浏览器插件-Bilibili图床](https://github.com/xlzy520/bilibili-img-uploader)
+- [Typora插件-Bilibili图床](https://github.com/xlzy520/typora-plugin-bilibili)
 
 
 ### 安装
