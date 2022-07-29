@@ -50,7 +50,7 @@ module.exports = (ctx) => {
       let body = await ctx.Request.request(postConfig)
       fs.unlink(filePath, () => {})
       body = JSON.parse(body)
-      if (body.message === 'success') {
+      if (body.data && body.data.image_url) {
         delete imgList[i].base64Image
         delete imgList[i].buffer
         imgList[i].imgUrl = body.data.image_url.replace('http', 'https')
