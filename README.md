@@ -33,7 +33,7 @@
     - Linux: `$XDG_CONFIG_HOME/picgo/` or `~/.config/picgo/`
     - macOS: `~/Library/Application\ Support/picgo/`
 
-  切换到新目录执行 `npm install ./picgo-plugin-smms-user`，然后重启应用即可。
+  切换到新目录执行 `npm install ./picgo-plugin-bilibili`，然后重启应用即可。
 
 
 ### 获取B站SESSDATA
