@@ -83,10 +83,10 @@ module.exports = (ctx) => {
     }
     return [
       {
-        name: '获取SESSDATA',
+        name: '获取SESSDATA和csrf',
         type: 'input',
         default: 'https://www.yuque.com/docs/share/9035662a-f2bd-4ba2-aa24-73acb98635c7',
-        alias: '获取SESSDATA'
+        alias: '获取SESSDATA和csrf'
       },
       {
         name: 'SESSDATA',
@@ -95,6 +95,14 @@ module.exports = (ctx) => {
         required: true,
         message: 'SESSDATA',
         alias: 'SESSDATA'
+      },
+      {
+        name: 'csrf',
+        type: 'input',
+        default: userConfig.csrf,
+        required: true,
+        message: 'csrf',
+        alias: 'csrf'
       }
     ]
   }
