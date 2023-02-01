@@ -8,7 +8,7 @@
   },
   "homepage": "https://github.com/xlzy520/picgo-plugin-bilibili",
   "scripts": {
-    "publish": "npm publish --registry http://registry.npmjs.org",
+    "publish": "npm publish --registry https://registry.npmjs.org",
     "test": "echo \"Error: no test specified\" && exit 1",
     "patch": "npm version patch && git push origin master && git push origin --tags",
     "minor": "npm version minor && git push origin master && git push origin --tags",
