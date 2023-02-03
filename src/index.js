@@ -12,15 +12,15 @@ module.exports = (ctx) => {
   const postOptions = (SESSDATA, csrf, fileName, image) => {
     return {
       method: 'POST',
-      url: `https://api.bilibili.com/x/dynamic/feed/draw/upload_bfs`,
+      url: `https://api.bilibili.com/x/article/creative/article/upcover`,
       headers: {
         contentType: 'multipart/form-data',
         'Cookie': `SESSDATA=${SESSDATA}`
       },
       formData: {
-        file_up: image,
-        category: 'daily',
-        biz: 'new_dyn',
+        binary: image,
+        // category: 'daily',
+        // biz: 'new_dyn',
         csrf
       }
     }
@@ -61,10 +61,10 @@ module.exports = (ctx) => {
       let body = await ctx.Request.request(postConfig)
       fs.unlink(filePath, () => {})
       body = JSON.parse(body)
-      if (body.data && body.data.image_url) {
+      if (body.data && body.data.url) {
         delete imgList[i].base64Image
         delete imgList[i].buffer
-        imgList[i].imgUrl = body.data.image_url.replace('http', 'https')
+        imgList[i].imgUrl = body.data.url.replace('http', 'https')
       } else {
         ctx.emit('notification', {
           title: '上传失败',
