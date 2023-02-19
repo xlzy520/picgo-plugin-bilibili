@@ -6,7 +6,7 @@
 
 
 为 [PicGo](https://github.com/Molunerfinn/PicGo) 开发的一款插件，新增了[B站图床](https://bilibili.com/) 图床。
-使用用户动态的图片上传API。填写`SESSDATA`即可，获取方式在下面。
+使用用户动态的图片上传API。填写`SESSDATA和bli_jct`即可，获取方式在下面。
 
 ### 目录
 1. [其他推荐](#其他推荐)
@@ -40,7 +40,7 @@
 
 1. 登录[B站](https://www.bilibili.com/)
 2. 按`F12`打开控制台
-3. 找到`SESSDATA`复制即可
+3. 找到`SESSDATA`还有`bli_jct`复制即可
 
 ![](https://i0.hdslb.com/bfs/album/c78539a4883da29ed0dddfc0fa4e15057911e39d.png)
 
