@@ -1,6 +1,6 @@
 {
   "name": "picgo-plugin-bilibili",
-  "version": "1.1.9",
+  "version": "1.1.10",
   "description": "bilibili 图床",
   "main": "src/index.js",
   "publishConfig": {
