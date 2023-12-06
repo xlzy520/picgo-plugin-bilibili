@@ -63,7 +63,7 @@ module.exports = (ctx) => {
       if (body.data && body.data.url) {
         delete imgList[i].base64Image
         delete imgList[i].buffer
-        imgList[i].imgUrl = body.data.url.replace('http', 'https')
+        imgList[i].imgUrl = body.data.image_url.replace('http', 'https')
       } else {
         ctx.emit('notification', {
           title: '上传失败',
