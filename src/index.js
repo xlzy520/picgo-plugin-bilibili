@@ -12,16 +12,15 @@ module.exports = (ctx) => {
   const postOptions = (SESSDATA, csrf, fileName, image) => {
     return {
       method: 'POST',
-      url: `https://api.bilibili.com/x/article/creative/article/upcover`,
+      url: `https://api.bilibili.com/x/dynamic/feed/draw/upload_bfs`,
       headers: {
         contentType: 'multipart/form-data',
         'Cookie': `SESSDATA=${SESSDATA}`
       },
       formData: {
-        binary: image,
-        // category: 'daily',
-        // biz: 'new_dyn',
-        csrf
+        file_up: image,
+        csrf,
+        biz: 'article'
       }
     }
   }
